@@ -7,6 +7,7 @@
 
 <style>
 	aside {
+		position: absolute;
 		margin-top: 48px;
 		width: 295px;
 		height: 700px;
@@ -14,11 +15,13 @@
 		background: rgb(255, 255, 255);
 		top: -300%;
 		transition: top 0.5s ease-in-out;
-		overflow-y: scroll;
+		box-shadow: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05);
+		--bg-opacity: 1;
+		border-right-width: 2px;
 	}
 
 	nav {
-		padding: 5% 0% 5% 10%;
+		padding: 2% 0% 2% 10%;
 	}
 
 	.content {
@@ -28,15 +31,22 @@
 	.open {
 		top: 0;
 	}
+
+	@media screen and (max-width: 976px) {
+		aside {
+			overflow-y: scroll;
+		}
+	}
 </style>
 
-<aside
-	class="absolute w-full h-full bg-gray-200 border-r-2 shadow-lg"
-	class:open>
-	<nav class="content-main">
-		<Pages pages={Dictionary.pages.about} icon={"icon-chat"}/>
-	</nav>
-	<nav class="content">
-		<Pages pages={Dictionary.pages.contact} icon={"icon-phone"}/>
-	</nav>
+<aside class:open>
+		<nav class="content-main">
+			<Pages pages={Dictionary.pages.about} icon={"icon-chat"} />
+		</nav>
+		<nav class="content">
+			<Pages pages={Dictionary.pages.contact} icon={"icon-phone"} />
+		</nav>
+		<nav class="content">
+			<Pages pages={Dictionary.pages.about} icon={"icon-chat"} />
+		</nav>
 </aside>

@@ -35,6 +35,7 @@ a {
 	line-height: 28px;
 	padding: 15px 0px;
 	align-items: center;
+	cursor: pointer;
 }
 
 a:hover {
